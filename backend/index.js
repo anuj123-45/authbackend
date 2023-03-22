@@ -1,9 +1,15 @@
 const mongoose = require("mongoose");
 const express = require("express");
+
+// import mongoose from  'mongoose';
+// import express from  'express';
+
 const app = express();
 const cors = require("cors");
+//import cors from 'cors';
 app.use(express.json());
-const usermodel = require("./schema");
+ const usermodel = require("./schema");
+ //import {usermodel} from './schema';
 app.use(cors());
 
 mongoose
@@ -17,6 +23,12 @@ mongoose
   .then(() => {
     console.log("Connection established");
   });
+
+
+
+app.get("/",(req,res)=>{
+  res.send("Welcome");
+})
 
 app.post("/register", async(req, res) => {
   const {
